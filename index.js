@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI,{ useNewUrlParser: true });
 const PORT = process.env.PORT || 5000; /* in production environment when we deploy the application to a service, it assigns
                                           a port to the environmental variable. but in development environment it is unavailable
                                           so that we need to give a port in that case.
